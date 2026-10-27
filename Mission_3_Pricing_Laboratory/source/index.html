@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101411">
+  <meta name="description" content="Outfit Hanger interactive pricing and cost laboratory">
+  <title>Outfit Hanger · Pricing & Cost Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+ <aside class="sidebar">
+  <a class="brand" href="#overview"><span class="brand-mark">OH</span><span>OUTFIT HANGER<small>PRICING LABORATORY</small></span></a>
+  <div class="workspace-label">WORKSPACE <span>MISSION 03</span></div>
+  <div class="venture-chip"><span class="venture-logo">O</span><span><b>Outfit Hanger</b><small>Pricing & cost model</small></span><i></i></div>
+  <div class="nav-label">LABORATORY</div>
+  <nav>
+   <a class="active" href="#overview"><span>◈</span> Business overview</a>
+   <a href="#costs"><span>⌗</span> Cost structure</a>
+   <a href="#products"><span>◉</span> Products & pricing</a>
+   <a href="#break-even"><span>↗</span> Break-even analysis</a>
+   <a href="#scenarios"><span>▧</span> Scenarios</a>
+   <a href="#competition"><span>◎</span> Competitive position</a>
+   <a href="#review"><span>✳</span> Decision review</a>
+  </nav>
+  <div class="sidebar-foot"><span class="avatar">OH</span><span><b>Private workspace</b><small>Saved in this browser</small></span></div>
+ </aside>
+ <main>
+  <header class="topbar"><div class="breadcrumbs">Pricing laboratory <span>/</span> <b>Business overview</b></div><div class="top-actions"><span class="save-state"><i></i><span id="saveText">Saved locally</span></span><button id="backupBtn" class="quiet-button">Export configuration</button><button id="importBtn" class="quiet-button">Import</button><input type="file" id="importFile" accept="application/json" hidden><button id="resetBtn" class="icon-button" title="Restore original suggested values" aria-label="Restore original suggested values">↺</button><span class="date-pill">MODEL PERIOD · MONTHLY</span></div></header>
+  <div class="page">
+   <section id="overview" class="section">
+    <div class="kicker"><span class="live-dot"></span>OUTFIT HANGER · COST & PRICE INTELLIGENCE</div>
+    <div class="hero-row"><div><h1>Price with your<br><em>eyes open.</em></h1><p>Explore what each hanger costs to sell, where the break-even line sits, and how your tentative price compares with observed alternatives.</p></div><div class="concept-card"><div class="concept-glyph">✳</div><div><small>VENTURE CONCEPT</small><b>One hanger.<br>A complete outfit.</b><span>Physical product · DTC model is a scenario</span></div></div></div>
+    <div class="assumption-banner"><span>!</span><div><b>Cost inputs are scenarios, not quotes.</b> Final materials, suppliers, minimum order sizes, shipping dimensions, and sales channels are unknown. Illustrative values are labeled and editable; replace them with supplier quotes before making a launch commitment.</div><button id="showEvidence">Evidence guide ↗</button></div>
+    <div class="metrics" id="metrics"></div>
+    <div class="overview-grid">
+     <article class="panel overview-insight"><div class="panel-title"><div><div class="eyebrow">MODEL STATUS</div><h2>Your working assumptions</h2></div><span class="badge amber">SCENARIO MODEL</span></div><div id="assumptionSummary"></div></article>
+     <article class="panel mini-competitors"><div class="panel-title"><div><div class="eyebrow">COMPETITIVE SNAPSHOT</div><h2>Comparable listed prices</h2><p>US research snapshot · Oct 27, 2026</p></div><a href="#competition" class="text-link">Explore ↗</a></div><div id="miniBars"></div><div class="panel-foot">Research prices are snapshots, not live listings.</div></article>
+    </div>
+   </section>
+   <section id="costs" class="section">
+    <div class="section-header"><div><div class="eyebrow">01 / OPERATING MODEL</div><h2>Cost structure</h2><p>Every expense is editable, sourced or labeled as an assumption, and included only when enabled.</p></div><div class="header-buttons"><button class="secondary" id="restoreCosts">Restore suggested costs</button><button class="primary" id="addExpense">＋ Add expense</button></div></div>
+    <div class="cost-control-row"><label class="searchbox">⌕ <input id="costSearch" placeholder="Find a cost" aria-label="Search costs"></label><select id="costKind"><option value="all">All cost types</option><option value="operating">Operating costs</option><option value="startup">Startup cash</option></select><select id="costCategory"><option value="all">All categories</option></select><label class="check-filter"><input id="showDisabled" type="checkbox"> Show disabled costs</label></div>
+    <div id="costGroups"></div>
+    <div class="startup-strip" id="startupStrip"></div>
+    <div class="storage-note">Your working model is saved to browser storage on this device. Clearing browser data or switching devices may remove it. Use Export configuration to keep a backup.</div>
+   </section>
+   <section id="products" class="section">
+    <div class="section-header"><div><div class="eyebrow">02 / OFFER DESIGN</div><h2>Products & pricing</h2><p>One documented physical product; hypothetical offers you add are labeled as student scenarios.</p></div><button class="primary" id="addProduct">＋ Add product</button></div>
+    <div id="productCards" class="product-grid"></div>
+    <div class="model-note"><span>i</span><p><b>One-time per-unit purchase is a modeled revenue structure.</b> Research does not confirm that the venture has opened sales, chosen a channel, or made a price decision.</p></div>
+   </section>
+   <section id="break-even" class="section">
+    <div class="section-header"><div><div class="eyebrow">03 / FINANCIAL VIABILITY</div><h2>Break-even analysis</h2><p>Monthly operating model · student-entered volume is an assumption, not a forecast.</p></div><div class="period-control"><span>VIEW RANGE</span><select id="chartRange"><option value="auto">Auto scale</option><option value="100">0–100 units</option><option value="500">0–500 units</option><option value="1000">0–1,000 units</option></select></div></div>
+    <div class="metrics compact" id="financialMetrics"></div>
+    <div class="chart-grid">
+     <article class="panel chart-panel"><div class="panel-title"><div><div class="eyebrow">REVENUE VS TOTAL COST</div><h3>Monthly break-even curve</h3><p>At current prices and unit cost, with fixed monthly costs held constant.</p></div><span class="chart-key"><i class="revenue-dot"></i>Revenue <i class="cost-dot"></i>Total cost</span></div><div class="chart-wrap" id="breakEvenChart"></div><div class="chart-explainer" id="beExplainer"></div></article>
+     <article class="panel chart-panel"><div class="panel-title"><div><div class="eyebrow">COST MIX</div><h3>Where the model spends</h3><p>Current monthly operating costs · category view</p></div></div><div id="costBreakdown"></div></article>
+    </div>
+    <div class="chart-grid second-charts">
+     <article class="panel chart-panel"><div class="panel-title"><div><div class="eyebrow">PRICE SENSITIVITY</div><h3>Price and monthly profit</h3><p>Sales volume held constant at your current assumptions.</p></div></div><div id="priceSensitivity"></div><div class="chart-explainer">Sensitivity view only. In the real market, volume may change with price; this chart does not estimate that response.</div></article>
+     <article class="panel chart-panel"><div class="panel-title"><div><div class="eyebrow">UNIT ECONOMICS</div><h3>Per-hanger contribution</h3><p>Price less product-linked variable cost and payment fees.</p></div></div><div id="unitEconomics"></div></article>
+    </div>
+   </section>
+   <section id="scenarios" class="section">
+    <div class="section-header"><div><div class="eyebrow">04 / OPERATING ASSUMPTIONS</div><h2>Financial scenarios</h2><p>Alternative cost and volume assumptions, not probability-weighted forecasts. Spending does not imply demand.</p></div><button class="secondary" id="saveScenario">＋ Save current as custom</button></div>
+    <div id="scenarioCards" class="scenario-cards"></div><div class="panel scenario-table-wrap"><div class="panel-title"><div><div class="eyebrow">SIDE-BY-SIDE</div><h3>Scenario comparison</h3></div></div><div class="table-scroll"><table><thead><tr><th>SCENARIO</th><th>FIXED / MO</th><th>VARIABLE / UNIT</th><th>PRICE</th><th>BREAK-EVEN UNITS</th><th>ASSUMED SALES</th><th>REVENUE / MO</th><th>PROFIT / MO</th></tr></thead><tbody id="scenarioRows"></tbody></table></div></div>
+   </section>
+   <section id="competition" class="section">
+    <div class="section-header"><div><div class="eyebrow">05 / PRICE POSITION</div><h2>Competitive landscape</h2><p>Compare financial viability with market positioning. Neither one alone decides strategy.</p></div><span class="badge">RESEARCH · OCT 27, 2026</span></div>
+    <div class="competitive-layout"><article class="panel position-panel"><div class="panel-title"><div><div class="eyebrow">SELECT AN OFFER</div><h3>Observed price ladder</h3><p>Comparable items: P01 and P03 only</p></div><select id="activeProduct"></select></div><div id="priceLadder"></div><div class="position-stats" id="positionStats"></div></article><article class="panel market-read"><div class="eyebrow">COMPETITIVE ATTRACTIVENESS ≠ FINANCIAL VIABILITY</div><h3 id="pricePositionTitle">A position is a comparison, not a verdict.</h3><p id="pricePositionText"></p><div class="divider"></div><div class="eyebrow">PRELIMINARY RESEARCH RANGE</div><div class="range-callout">$19.99 <span>—</span> $29.99 <small>per hanger · hypothesis only</small></div><div class="market-disclaimer">The two-item comparable sample is sparse and differs in functionality. It does not establish willingness to pay or an optimal price.</div></article></div>
+    <div class="panel competitor-table"><div class="panel-title"><div><div class="eyebrow">ALL RESEARCHED OFFERS</div><h3>Alternatives and units</h3></div><span class="badge amber">SNAPSHOT · NOT LIVE</span></div><div class="table-scroll"><table><thead><tr><th>COMPETITOR</th><th>OFFER</th><th>PRICE</th><th>UNIT / NOTES</th><th>TYPE</th><th>STATUS</th><th>SOURCE</th></tr></thead><tbody id="competitorRows"></tbody></table></div></div>
+   </section>
+   <section id="review" class="section review-section">
+    <div class="review-hero"><div><div class="eyebrow">06 / DECISION GATE</div><h2>Pricing Decision Review</h2><p>A transparent rules-based review of this model’s financial, competitive, and evidence risks. It does not predict business failure.</p></div><span class="review-seal">✳<small>YOUR CALL</small></span></div>
+    <div class="review-grid"><article class="panel review-controls"><div class="eyebrow">READY WHEN YOU ARE</div><h3>Evaluate the current model</h3><p>We’ll calculate against your enabled costs, listed competitor prices, preliminary range, and volume assumption.</p><button class="primary wide" id="evaluate">Evaluate my pricing decision</button><div class="rule-note">Risk rules are visible and documented: non-positive contribution is financially unsustainable; an operating loss or break-even above 2× assumed volume is high modeled risk; positive profit with low evidence quality is moderate modeled risk; lower modeled risk requires positive modeled profit, break-even within volume and a stronger evidence base.</div></article><article class="panel evaluation-result" id="evaluationBox"><div class="empty-review"><span>◎</span><h3>No current evaluation</h3><p>Adjust costs or price, then run the review. Any later change makes the previous result outdated.</p></div></article></div>
+    <div class="decision-actions" id="decisionActions" hidden><button class="secondary" id="reviseBtn">Revise my pricing</button><button class="primary" id="confirmBtn">Confirm my pricing decision</button></div>
+    <div class="confirm-card" id="confirmCard" hidden><div class="eyebrow">STUDENT DECISION STATEMENT</div><h3>Why is this the right price for your model?</h3><p>Explain how your price relates to costs, competitors, and the value proposition. The explanation is included in your report.</p><textarea id="justification" rows="4" placeholder="I selected this price because…"></textarea><label class="acknowledge" id="ackRow" hidden><input type="checkbox" id="warningAck"> I reviewed the financial and evidence warnings above and understand this model is based on assumptions.</label><div class="confirm-actions"><button class="secondary" id="cancelConfirm">Back to review</button><button class="primary" id="finalize">Finalize my decision snapshot</button></div></div>
+    <div class="final-card" id="finalCard" hidden><div class="final-check">✓</div><div><div class="eyebrow">DECISION SNAPSHOT CONFIRMED</div><h3>Your current confirmed version is ready.</h3><p>Any later edits make this snapshot outdated and require a fresh evaluation and confirmation.</p></div><div class="final-buttons"><button class="primary" id="downloadDocx">Download Pricing Decision Report (.docx)</button><button class="secondary" id="downloadJson">Download decision data (.json)</button></div></div>
+   </section>
+   <footer><span>OUTFIT HANGER <b>·</b> PRICING & COST LABORATORY</span><span>Local-only model · Updated <span id="updatedAt">—</span></span></footer>
+  </div>
+ </main>
+</div>
+<dialog id="expenseDialog"><form method="dialog" id="expenseForm"><div class="dialog-head"><div class="eyebrow">COST MANAGEMENT</div><button value="cancel" class="close-dialog" aria-label="Close">×</button></div><h2 id="expenseDialogTitle">Add expense</h2><input type="hidden" name="id"><div class="form-grid"><label>Expense name<input name="name" required></label><label>Category<select name="category"></select></label><label class="full">Description<textarea name="description" rows="2"></textarea></label><label>Amount<input name="amount" type="number" step="0.01" min="0"></label><label>Frequency<select name="frequency"><option value="monthly">Monthly</option><option value="annual">Annual</option><option value="weekly">Weekly</option><option value="one-time">One-time</option><option value="per-unit">Per unit</option><option value="per-order">Per order</option><option value="percent-of-price">Percent of price</option></select></label><label>Cost behavior<select name="classification"><option value="fixed">Fixed</option><option value="variable">Variable</option></select></label><label>Cost area<select name="kind"><option value="operating">Operating</option><option value="startup">Startup</option></select></label><label>Evidence status<select name="status"><option>Researched</option><option>Estimated</option><option>Illustrative</option><option>Student-Entered</option></select></label><label>Applies to<select name="scope"><option value="shared">Shared business cost</option><option value="product">Product-specific</option></select></label><label class="full">Assumptions / source note<textarea name="assumptions" rows="2"></textarea></label><label class="full">Source URL<input name="sourceUrl" type="url" placeholder="Optional source link"></label></div><div class="dialog-actions"><button type="button" class="secondary" id="deleteExpense">Delete</button><span></span><button value="cancel" class="secondary">Cancel</button><button id="saveExpense" value="default" class="primary">Save cost</button></div></form></dialog>
+<dialog id="productDialog"><form method="dialog" id="productForm"><div class="dialog-head"><div class="eyebrow">OFFER MANAGEMENT</div><button value="cancel" class="close-dialog" aria-label="Close">×</button></div><h2 id="productDialogTitle">Add product scenario</h2><input type="hidden" name="id"><div class="form-grid"><label>Product name<input name="name" required></label><label>Price (USD)<input name="price" type="number" min="0" step=".01"></label><label>Assumed sales / month<input name="expectedUnits" type="number" min="0" step="1"></label><label>Pricing model<select name="pricingModel"><option>One-time purchase</option><option>Per-unit pricing</option><option>Bundled pricing</option></select></label><label class="full">Description<textarea name="description" rows="2"></textarea></label><label class="full">Customer-facing features<textarea name="features" rows="2"></textarea></label><label class="full">Optional add-ons<textarea name="addons" rows="2" placeholder="Separate items with commas; leave blank if none"></textarea></label></div><div class="dialog-actions"><button type="button" class="secondary" id="deleteProduct">Delete</button><span></span><button value="cancel" class="secondary">Cancel</button><button id="saveProduct" value="default" class="primary">Save product</button></div></form></dialog>
+<input type="file" id="docxFile" hidden>
+<script type="module" src="./src/main.js"></script>
+</body></html>
+
