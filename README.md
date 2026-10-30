@@ -1,6 +1,11 @@
 # Outfit Hanger - Pricing Intelligence Dashboard
 
-Static interactive pricing dashboard from the Mission 1 research. No backend, API keys, or runtime service are required.
+Static interactive pricing dashboards for the Outfit Hanger project. No backend, API keys, or runtime service are required.
+
+## Live dashboards
+
+- [Mission 2 — Competitive Pricing Intelligence](https://emma0424.github.io/A5-Pricing/)
+- [Mission 3 — Interactive Pricing & Cost Laboratory](https://emma0424.github.io/A5-Pricing/Mission_3_Pricing_Laboratory/)
 
 ## Local preview
 
@@ -17,3 +22,4 @@ The $13.99-$45 comparable range, $29.495 mean and median use P01 (Adult Hanger V
 Availability is shown as not reported because the supplied records do not establish current availability. Prices are researched US listings before unconfirmed taxes and shipping. This tool compares prices only; it does not forecast demand, sales, revenue, cost, or profit.
 
 The report contains a historical note that two named research documents were unavailable to its author; those files are now present in the workspace. The dashboard preserves the note as a documentation caveat.
+
